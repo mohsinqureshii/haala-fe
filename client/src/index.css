@@ -143,7 +143,68 @@
     @apply py-20 lg:py-28;
   }
   .font-arabic {
-    font-family: 'Noto Sans Arabic', sans-serif;
+    font-family: 'STC Forward', 'Noto Sans Arabic', sans-serif;
+  }
+  .font-urdu {
+    font-family: 'Naqash', 'Noto Sans Urdu', sans-serif;
+  }
+  
+  /* RTL Support for Arabic and Urdu */
+  html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  html[dir="rtl"] body {
+    direction: rtl;
+  }
+  
+  html[dir="rtl"] .flex {
+    flex-direction: row-reverse;
+  }
+  
+  html[dir="rtl"] .text-left {
+    text-align: right;
+  }
+  
+  html[dir="rtl"] .text-right {
+    text-align: left;
+  }
+  
+  html[dir="rtl"] .ml-auto {
+    margin-right: auto;
+    margin-left: 0;
+  }
+  
+  html[dir="rtl"] .mr-auto {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  html[dir="rtl"] .pl-4 {
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+  
+  html[dir="rtl"] .pr-4 {
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+  
+  html[dir="rtl"] .justify-start {
+    justify-content: flex-end;
+  }
+  
+  html[dir="rtl"] .justify-end {
+    justify-content: flex-start;
+  }
+  
+  html[dir="rtl"] .items-start {
+    align-items: flex-end;
+  }
+  
+  html[dir="rtl"] .items-end {
+    align-items: flex-start;
   }
   .flex {
     min-height: 0;
