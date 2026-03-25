@@ -7,31 +7,31 @@ import ArabicText from "@/components/ArabicText";
 
 const timeline = [
   {
-    year: "2022",
+    ye,
     title: "Founded in Lahore",
     desc: "Haala was founded in Lahore, Pakistan with a simple belief: teams in our region deserve a workspace platform built for them — not retrofitted from a Western product.",
     flag: "🇵🇰",
   },
   {
-    year: "2023",
+    ye,
     title: "First 1,000 teams",
     desc: "We reached our first 1,000 active teams entirely through word of mouth. Mail, Chat, Docs, Calendar, and Meetings — all in one, with native Arabic and Urdu support.",
     flag: "🚀",
   },
   {
-    year: "2024",
+    ye,
     title: "GCC Expansion",
     desc: "We opened our UAE data center and expanded into Saudi Arabia, UAE, and Bahrain. PDPL compliance and regional pricing made adoption in the Gulf instant.",
     flag: "🇦🇪",
   },
   {
-    year: "2025",
+    ye,
     title: "100,000 users",
     desc: "Haala crossed 100,000 active users across 4 countries. We launched Murshid AI — the first Arabic-native AI assistant built into a full productivity suite.",
     flag: "⭐",
   },
   {
-    year: "2026",
+    ye,
     title: "Enterprise Launch",
     desc: "We launched Haala Enterprise with on-premise deployment, SSO/SAML, SCIM, audit logs, and dedicated CSMs. SOC 2 Type II certified.",
     flag: "🏢",
@@ -44,7 +44,6 @@ const values = [
     color: "#1A73E8",
     bg: "#EBF3FE",
     title: "Regional First",
-    ar: "المنطقة أولاً",
     desc: "Every decision starts with: what do teams in Pakistan, Saudi Arabia, UAE, and Bahrain actually need? Not what's convenient for a Silicon Valley office.",
   },
   {
@@ -52,7 +51,6 @@ const values = [
     color: "#8B5CF6",
     bg: "#F2EEFF",
     title: "Arabic Native",
-    ar: "عربية أصيلة",
     desc: "Arabic and Urdu support isn't a setting or add-on — it's built into the foundation of every product. RTL, Hijri calendar, Arabic names, Arabic AI.",
   },
   {
@@ -60,7 +58,6 @@ const values = [
     color: "#34A853",
     bg: "#E8F5EC",
     title: "Privacy by Design",
-    ar: "الخصوصية من التصميم",
     desc: "Your data belongs to you. We never train AI models on your content. Enterprise customers can self-host everything in their own infrastructure.",
   },
   {
@@ -68,7 +65,6 @@ const values = [
     color: "#EA4335",
     bg: "#FDEEEC",
     title: "Radical Transparency",
-    ar: "شفافية كاملة",
     desc: "Transparent pricing, a public roadmap, an open changelog, and honest communication. No surprise bills, no vendor lock-in, no dark patterns.",
   },
   {
@@ -76,7 +72,6 @@ const values = [
     color: "#FBBC04",
     bg: "#FEF8E6",
     title: "Long-term Thinking",
-    ar: "تفكير طويل المدى",
     desc: "We're building a 50-year company, not a flip. That means sustainable growth, happy customers, and products we're proud of — not hockey-stick metrics.",
   },
   {
@@ -84,7 +79,6 @@ const values = [
     color: "#EC4899",
     bg: "#FDF2F8",
     title: "Community Driven",
-    ar: "مجتمع متكامل",
     desc: "Our roadmap is shaped by the teams using Haala. We host open community calls, publish feature request votes, and ship what our users actually ask for.",
   },
 ];
@@ -141,10 +135,10 @@ const teamMembers = [
 ];
 
 const stats = [
-  { value: "100K+", label: "Active users", ar: "مستخدم نشط" },
-  { value: "12K+", label: "Teams", ar: "فريق" },
-  { value: "4", label: "Countries", ar: "دول" },
-  { value: "11", label: "Products", ar: "منتج" },
+  { value: "100K+", label: "Active users" },
+  { value: "12K+", label: "Teams" },
+  { value: "4", label: "Countries" },
+  { value: "11", label: "Products" },
 ];
 
 const AboutPage = () => {
@@ -181,7 +175,7 @@ const AboutPage = () => {
               <div key={stat.label} className="text-center">
                 <div className="text-4xl font-bold text-[#1A73E8] mb-1">{stat.value}</div>
                 <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
-                <ArabicText className="text-xs text-gray-400">{stat.ar}</ArabicText>
+                <ArabicText className="text-xs text-gray-400"></ArabicText>
               </div>
             ))}
           </div>
@@ -273,7 +267,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="font-bold text-[#0D1B2A] mb-1">{val.title}</h3>
                 <ArabicText className="text-xs font-medium block mb-3" style={{ color: val.color }}>
-                  {val.ar}
+                  
                 </ArabicText>
                 <p className="text-sm text-gray-500 leading-relaxed">{val.desc}</p>
               </div>
