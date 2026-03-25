@@ -172,8 +172,6 @@ export default defineConfig({
           'vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-components': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-popover', '@radix-ui/react-select'],
           'lucide': ['lucide-react'],
-          'pages-products': ['./client/src/pages/Mail.tsx', './client/src/pages/Chat.tsx', './client/src/pages/Meetings.tsx', './client/src/pages/Calendar.tsx'],
-          'pages-features': ['./client/src/pages/Features.tsx', './client/src/pages/Pricing.tsx', './client/src/pages/Enterprise.tsx'],
         },
       },
     },
