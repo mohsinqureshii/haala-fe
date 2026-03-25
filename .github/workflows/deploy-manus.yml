@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -33,31 +33,20 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Deploy to Manus
-        env:
-          MANUS_PROJECT_ID: ${{ secrets.MANUS_PROJECT_ID }}
-          MANUS_API_TOKEN: ${{ secrets.MANUS_API_TOKEN }}
+      - name: Verify build output
         run: |
-          # Install Manus CLI if needed
-          npm install -g @manus/cli || true
-          
-          # Deploy using git push (Manus auto-detects changes)
-          git config user.email "github-actions@github.com"
-          git config user.name "GitHub Actions"
-          
-          # The deployment happens automatically when we push to the repository
-          # Manus webhook will trigger on this push
-          echo "✅ Build successful. Manus will auto-deploy on webhook trigger."
+          if [ -d "dist/public" ]; then
+            echo "✅ Build successful"
+            echo "📦 Build artifacts ready at dist/public"
+            ls -lah dist/public/ | head -10
+          else
+            echo "❌ Build failed - dist/public not found"
+            exit 1
+          fi
 
       - name: Notify deployment
         if: success()
         run: |
-          echo "✅ Deployment to Manus initiated"
-          echo "🌐 Your site will be live at: https://haala.io"
-          echo "📊 Dev server: https://3000-iuxxve3cuupzjdsvfkc4q-885139a8.us2.manus.computer"
-
-      - name: Notify failure
-        if: failure()
-        run: |
-          echo "❌ Build or deployment failed"
-          exit 1
+          echo "✅ Build successful and ready for deployment"
+          echo "🚀 Manus will auto-deploy this build via webhook"
+          echo "🌐 Site: https://haala.io"
