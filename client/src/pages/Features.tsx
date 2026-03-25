@@ -10,12 +10,12 @@ import ArabicText from "@/components/ArabicText";
 
 type TabId = "all" | "communication" | "productivity" | "ai" | "security";
 
-const tabs: { id: TabId; label: string }[] = [
-  { id: "all", label: "All Products" },
-  { id: "communication", label: "Communication" },
-  { id: "productivity", label: "Productivity" },
-  { id: "ai", label: "AI" },
-  { id: "security", label: "Security" },
+const tabs: { id: TabId; label: string; ar: string }[] = [
+  { id: "all", label: "All Products", ar: "الكل" },
+  { id: "communication", label: "Communication", ar: "التواصل" },
+  { id: "productivity", label: "Productivity", ar: "الإنتاجية" },
+  { id: "ai", label: "AI", ar: "الذكاء الاصطناعي" },
+  { id: "security", label: "Security", ar: "الأمان" },
 ];
 
 const products = [
@@ -24,6 +24,7 @@ const products = [
     color: "#1A73E8",
     bg: "#EBF3FE",
     en: "Mail",
+    ar: "بريد",
     category: "communication" as TabId,
     desc: "A full-featured email client built for teams in the Arab world.",
     features: [
@@ -39,6 +40,7 @@ const products = [
     color: "#34A853",
     bg: "#E8F5EC",
     en: "Chat · Kalam",
+    ar: "كلام",
     category: "communication" as TabId,
     desc: "Real-time team messaging built for Arabic-speaking workplaces.",
     features: [
@@ -54,6 +56,7 @@ const products = [
     color: "#EA4335",
     bg: "#FDEEEC",
     en: "Meetings · Majlis",
+    ar: "مجلس",
     category: "communication" as TabId,
     desc: "HD video conferencing with AI transcription in Arabic and English.",
     features: [
@@ -69,6 +72,7 @@ const products = [
     color: "#FBBC04",
     bg: "#FEF8E6",
     en: "Calendar · Maweed",
+    ar: "موعد",
     category: "productivity" as TabId,
     desc: "Smart calendar with Hijri + Gregorian dual display and AI scheduling.",
     features: [
@@ -84,6 +88,7 @@ const products = [
     color: "#0EA5E9",
     bg: "#E0F5FE",
     en: "People · Daira",
+    ar: "دائرة",
     category: "productivity" as TabId,
     desc: "Contacts, directory, and org chart for your entire organization.",
     features: [
@@ -99,6 +104,7 @@ const products = [
     color: "#10B981",
     bg: "#E6FAF4",
     en: "Drive · Amana",
+    ar: "أمانة",
     category: "security" as TabId,
     desc: "Secure cloud storage with end-to-end encryption and regional servers.",
     features: [
@@ -114,6 +120,7 @@ const products = [
     color: "#8B5CF6",
     bg: "#F2EEFF",
     en: "AI · Murshid",
+    ar: "مرشد",
     category: "ai" as TabId,
     desc: "Your AI companion across every Haala product — in Arabic, Urdu, and English.",
     features: [
@@ -129,6 +136,7 @@ const products = [
     color: "#F59E0B",
     bg: "#FEF3E2",
     en: "Tasks · Injaaz",
+    ar: "إنجاز",
     category: "productivity" as TabId,
     desc: "Project management with Kanban, Gantt, and AI task prioritization.",
     features: [
@@ -144,6 +152,7 @@ const products = [
     color: "#1A73E8",
     bg: "#EBF3FE",
     en: "Docs · Kitaab",
+    ar: "كتاب",
     category: "productivity" as TabId,
     desc: "Collaborative documents with real-time co-editing and AI writing assistance.",
     features: [
@@ -159,6 +168,7 @@ const products = [
     color: "#34A853",
     bg: "#E8F5EC",
     en: "Sheets · Hisaab",
+    ar: "حساب",
     category: "productivity" as TabId,
     desc: "Spreadsheets with Excel-compatible formulas and an AI formula generator.",
     features: [
@@ -174,6 +184,7 @@ const products = [
     color: "#EA4335",
     bg: "#FDEEEC",
     en: "Notes · Khawatir",
+    ar: "خواطر",
     category: "productivity" as TabId,
     desc: "Personal notes and team knowledge base with powerful search.",
     features: [
@@ -190,26 +201,31 @@ const aiFeatures = [
   {
     icon: <Mail className="h-6 w-6" />,
     title: "Auto-Compose Email",
+    ar: "كتابة البريد تلقائياً",
     desc: "Murshid drafts entire email replies from a few keywords — in Arabic, Urdu, or English. Matches your tone and adapts to the recipient's language.",
   },
   {
     icon: <Video className="h-6 w-6" />,
     title: "Meeting Summaries",
+    ar: "ملخصات الاجتماعات",
     desc: "Every Majlis meeting gets an AI-generated summary with key decisions, action items, and owners — available in Arabic within minutes of the call ending.",
   },
   {
     icon: <FileText className="h-6 w-6" />,
     title: "Document Generation",
+    ar: "إنشاء المستندات",
     desc: "Turn a brief prompt into a full proposal, report, or business plan — fully formatted, structured, and in your brand voice.",
   },
   {
     icon: <Table2 className="h-6 w-6" />,
     title: "Formula AI for Sheets",
+    ar: "الذكاء الاصطناعي للأرقام",
     desc: "Describe your formula in natural Arabic or English and Murshid writes it. No more searching Stack Overflow for Excel syntax.",
   },
   {
     icon: <Calendar className="h-6 w-6" />,
     title: "Smart Scheduling",
+    ar: "جدولة ذكية",
     desc: "Tell Murshid who you need to meet and when you prefer — it finds the best slot, books the room, and sends the invite automatically.",
   },
 ];
@@ -293,7 +309,7 @@ const FeaturesPage = () => {
                 }`}
               >
                 {tab.label}{" "}
-                <ArabicText className="text-xs opacity-70 ml-1"></ArabicText>
+                <ArabicText className="text-xs opacity-70 ml-1">{tab.ar}</ArabicText>
               </button>
             ))}
           </div>
@@ -312,7 +328,7 @@ const FeaturesPage = () => {
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
                   <h3 className="text-lg font-bold text-[#0D1B2A]">{product.en}</h3>
-                  <ArabicText className="text-base text-gray-400 font-medium"></ArabicText>
+                  <ArabicText className="text-base text-gray-400 font-medium">{product.ar}</ArabicText>
                 </div>
                 <p className="text-sm text-gray-500 mb-4 leading-relaxed">{product.desc}</p>
                 <ul className="space-y-2">
@@ -360,7 +376,7 @@ const FeaturesPage = () => {
                 </div>
                 <h3 className="font-bold text-[#0D1B2A] mb-1">{feat.title}</h3>
                 <ArabicText className="text-xs text-[#8B5CF6] font-medium block mb-2">
-                  
+                  {feat.ar}
                 </ArabicText>
                 <p className="text-sm text-gray-500 leading-relaxed">{feat.desc}</p>
               </div>

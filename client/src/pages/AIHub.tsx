@@ -148,7 +148,7 @@ const AIHub = () => {
       id: Date.now(),
       role: "user",
       content: inputValue,
-      timestamp: new Date().toLocaleTimeString("en-US", { ho, minute: "2-digit" }),
+      timestamp: new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }),
     };
     setMessages((prev) => [...prev, userMsg]);
     setInputValue("");
@@ -158,7 +158,7 @@ const AIHub = () => {
         id: Date.now() + 1,
         role: "assistant",
         content: `I understand you're asking about "${userMsg.content.slice(0, 60)}${userMsg.content.length > 60 ? "..." : ""}". As Murshid, I'm here to help you with professional tasks across the Haala productivity suite.\n\nI can assist with:\n- **Drafting** documents, emails, and proposals in Arabic or English\n- **Analyzing** data from your Haala Sheets\n- **Summarizing** meetings from Haala Meet recordings\n- **Translating** content between Arabic, English, and Urdu\n\nPlease share more context and I'll provide a detailed response tailored to your needs.`,
-        timestamp: new Date().toLocaleTimeString("en-US", { ho, minute: "2-digit" }),
+        timestamp: new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }),
       };
       setMessages((prev) => [...prev, aiMsg]);
       setIsLoading(false);

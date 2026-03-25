@@ -130,7 +130,7 @@ const DashboardPage = () => {
   const [notifOpen, setNotifOpen] = useState(false);
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
-    ye,
+    year: "numeric",
     month: "long",
     day: "numeric",
   });

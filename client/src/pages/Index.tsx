@@ -59,17 +59,17 @@ const testimonials = [
 ];
 
 const ProductCard = ({ product }: { product: typeof products[0] }) => (
-  <Link to={product.href} className="group bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 block min-h-[280px] flex flex-col">
-    <div className="flex items-start justify-between mb-6">
-      <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: product.bg, color: product.color }}>
+  <Link to={product.href} className="group bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 block">
+    <div className="flex items-start justify-between mb-3">
+      <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: product.bg, color: product.color }}>
         {product.icon}
       </div>
-      <ChevronRight className="h-5 w-5 text-gray-300 group-hover:text-gray-500 transition-colors" />
+      <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-gray-500 transition-colors mt-1" />
     </div>
-    <div className="flex items-baseline gap-2 mb-3 flex-grow-0">
-      <span className="text-lg font-bold text-gray-900">{product.en}</span>
+    <div className="flex items-baseline gap-2 mb-1">
+      <span className="text-base font-semibold text-gray-900">{product.en}</span>
     </div>
-    <p className="text-base text-gray-600 leading-relaxed flex-grow">{product.desc}</p>
+    <p className="text-sm text-gray-600 leading-relaxed">{product.desc}</p>
   </Link>
 );
 
@@ -150,18 +150,18 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCTS SECTION - Clean White Canvas */}
-      <section className="py-32 bg-white">
+      <section className="py-24 bg-white">
         <div className="container-tight">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Eleven tools. One login. Zero compromise.
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Every product your team needs — deeply integrated, beautifully designed, and AI-native.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => (
               <ProductCard key={product.en} product={product} />
             ))}

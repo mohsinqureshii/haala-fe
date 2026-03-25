@@ -20,6 +20,7 @@ const pillars = [
     color: "#1A73E8",
     bg: "#EBF3FE",
     title: "Security",
+    ar: "الأمان",
     desc: "Enterprise-grade protection at every layer.",
     features: [
       "End-to-end encryption (AES-256)",
@@ -34,6 +35,7 @@ const pillars = [
     color: "#34A853",
     bg: "#E8F5EC",
     title: "Compliance",
+    ar: "الامتثال",
     desc: "Meet every regulatory requirement in your region.",
     features: [
       "SOC 2 Type II certified",
@@ -48,6 +50,7 @@ const pillars = [
     color: "#8B5CF6",
     bg: "#F2EEFF",
     title: "Control",
+    ar: "التحكم",
     desc: "Full administrative control over your organization.",
     features: [
       "SSO / SAML 2.0 integration",
@@ -62,6 +65,7 @@ const pillars = [
     color: "#EA4335",
     bg: "#FDEEEC",
     title: "Support",
+    ar: "الدعم",
     desc: "A dedicated team invested in your success.",
     features: [
       "Dedicated Customer Success Manager",
@@ -77,6 +81,7 @@ const deploymentOptions = [
   {
     icon: <Cloud className="h-8 w-8" />,
     title: "Cloud",
+    ar: "سحابي",
     color: "#1A73E8",
     bg: "#EBF3FE",
     desc: "Fully managed by Haala. Data hosted in your chosen region — UAE or Pakistan data center.",
@@ -92,6 +97,7 @@ const deploymentOptions = [
   {
     icon: <HardDrive className="h-8 w-8" />,
     title: "Hybrid",
+    ar: "هجين",
     color: "#8B5CF6",
     bg: "#F2EEFF",
     desc: "Sensitive data in your private cloud; collaboration features managed by Haala. Best of both worlds.",
@@ -107,6 +113,7 @@ const deploymentOptions = [
   {
     icon: <Server className="h-8 w-8" />,
     title: "On-Premise",
+    ar: "داخلي",
     color: "#34A853",
     bg: "#E8F5EC",
     desc: "Full Haala stack deployed in your own data center. Complete data sovereignty, air-gap support.",
@@ -307,7 +314,7 @@ const EnterprisePage = () => {
                 </div>
                 <h3 className="font-bold text-[#0D1B2A] text-lg mb-1">{pillar.title}</h3>
                 <ArabicText className="text-xs font-medium block mb-2" style={{ color: pillar.color }}>
-                  
+                  {pillar.ar}
                 </ArabicText>
                 <p className="text-sm text-gray-500 mb-4 leading-relaxed">{pillar.desc}</p>
                 <ul className="space-y-2">
@@ -350,6 +357,7 @@ const EnterprisePage = () => {
               {
                 flag: "🇦🇪",
                 region: "UAE — Dubai",
+                ar: "الإمارات — دبي",
                 desc: "Primary region for Gulf and MENA customers. Serves Saudi Arabia, UAE, Bahrain, and Kuwait. PDPL and GDPR compliant.",
                 color: "#1A73E8",
                 tags: ["Saudi Arabia 🇸🇦", "UAE 🇦🇪", "Bahrain 🇧🇭", "Kuwait 🇰🇼"],
@@ -357,6 +365,7 @@ const EnterprisePage = () => {
               {
                 flag: "🇵🇰",
                 region: "Pakistan — Karachi",
+                ar: "باكستان — كراتشي",
                 desc: "Primary region for South Asian customers. Serves Pakistan, Bangladesh, and the broader South Asia market. PTA and PECA compliant.",
                 color: "#34A853",
                 tags: ["Pakistan 🇵🇰", "Bangladesh 🇧🇩", "Sri Lanka 🇱🇰"],
@@ -366,7 +375,7 @@ const EnterprisePage = () => {
                 <div className="text-4xl mb-3">{dc.flag}</div>
                 <h3 className="font-bold text-white text-lg mb-1">{dc.region}</h3>
                 <ArabicText className="text-sm block mb-3" style={{ color: dc.color }}>
-                  
+                  {dc.ar}
                 </ArabicText>
                 <p className="text-gray-400 text-sm mb-4 leading-relaxed">{dc.desc}</p>
                 <div className="flex flex-wrap gap-2">
@@ -452,7 +461,7 @@ const EnterprisePage = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0D1B2A] mb-1">{opt.title}</h3>
                 <ArabicText className="text-sm font-medium block mb-3" style={{ color: opt.color }}>
-                  
+                  {opt.ar}
                 </ArabicText>
                 <p className="text-sm text-gray-500 mb-5 leading-relaxed">{opt.desc}</p>
                 <ul className="space-y-2">
