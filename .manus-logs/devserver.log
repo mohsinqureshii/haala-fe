@@ -1,0 +1,6 @@
+[2026-03-25T15:09:22.285Z] 11:09:22 AM [vite] (client) page reload index.html
+[2026-03-25T15:09:22.619Z] 11:09:22 AM [vite] (client) page reload client/index.html
+[2026-03-25T15:09:22.641Z] 11:09:22 AM [vite] changed tsconfig file detected: /home/ubuntu/haala-fe/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-03-25T15:55:57.361Z] 11:55:57 AM [vite] (client) page reload index.html
+[2026-03-25T15:55:57.449Z] 11:55:57 AM [vite] changed tsconfig file detected: /home/ubuntu/haala-fe/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-03-25T15:55:57.452Z] 11:55:57 AM [vite] (client) page reload client/index.html
