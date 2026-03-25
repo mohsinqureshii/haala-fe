@@ -1,11 +1,19 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
-const ArabicText = ({ children, className = '' }: { children: ReactNode, className?: string }) => (
+const ArabicText = ({ 
+  children, 
+  className = '',
+  style 
+}: { 
+  children: ReactNode
+  className?: string
+  style?: CSSProperties
+}) => (
   <span
     dir="rtl"
     lang="ar"
     className={className}
-    style={{ fontFamily: "'Noto Sans Arabic', sans-serif" }}
+    style={{ fontFamily: "'Noto Sans Arabic', sans-serif", ...style }}
   >
     {children}
   </span>
