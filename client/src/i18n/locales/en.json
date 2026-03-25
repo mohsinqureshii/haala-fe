@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "products": "Products",
+    "features": "Features",
+    "pricing": "Pricing",
+    "enterprise": "Enterprise",
+    "company": "Company",
+    "contact_sales": "Contact sales",
+    "get_started": "Get started free"
+  },
+  "hero": {
+    "badge": "AI-Powered · Now Available in {{region}}",
+    "title1": "Your team's new home.",
+    "title2": "Everyone, together.",
+    "subtitle": "Mail. Chat. Meetings. Docs. Drive. AI. Eleven products, one platform — built for {{region}}.",
+    "cta_primary": "Get started free",
+    "cta_secondary": "Watch demo",
+    "free_note": "Free forever for individuals · No credit card required",
+    "stats_teams": "Teams",
+    "stats_countries": "Countries",
+    "stats_uptime": "Uptime SLA",
+    "stats_products": "Products"
+  },
+  "products": {
+    "title": "Eleven tools. One login. Zero compromise.",
+    "subtitle": "Every product your team needs — deeply integrated, beautifully designed, and AI-native."
+  },
+  "why": {
+    "title": "Built for our world. Not just translated for it.",
+    "subtitle": "Most productivity tools were built for Silicon Valley. Haala is built for {{city1}}, {{city2}} and {{city3}}.",
+    "rtl_title": "Arabic & Urdu First",
+    "rtl_desc": "Full RTL support built in from day one, not bolted on.",
+    "pricing_title": "Priced for Our Markets",
+    "pricing_desc": "Plans from {{price}}. Not $20/user/month.",
+    "data_title": "Data Stays in Region",
+    "data_desc": "Servers in UAE and Pakistan. PDPL compliant.",
+    "mobile_title": "Mobile-First",
+    "mobile_desc": "Designed for how we actually work — on our phones.",
+    "free_title": "Actually Free",
+    "free_desc": "Not a trial. Free forever for individuals.",
+    "support_title": "Local Support",
+    "support_desc": "Arabic, Urdu and English. Real humans."
+  },
+  "testimonials": {
+    "title": "Loved by teams across the region"
+  },
+  "pricing": {
+    "title": "Start free. Upgrade when ready.",
+    "free_name": "Free",
+    "free_price": "Free",
+    "free_period": "Forever",
+    "free_desc": "For individuals & small teams",
+    "free_cta": "Get started free",
+    "business_name": "Business",
+    "business_period": "{{currency}}/user/mo",
+    "business_desc": "For growing teams",
+    "business_cta": "Start free trial",
+    "enterprise_name": "Enterprise",
+    "enterprise_price": "Custom",
+    "enterprise_period": "Tailored",
+    "enterprise_desc": "For large organisations",
+    "enterprise_cta": "Talk to sales"
+  },
+  "cta": {
+    "title": "Your team's new home is waiting.",
+    "subtitle": "Free forever. No credit card. Set up in 2 minutes.",
+    "button": "Get started free"
+  },
+  "footer": {
+    "tagline": "Everyone, together.",
+    "copyright": "© 2026 Haala · TechBanq. All rights reserved. Made with ♥ for Pakistan & the GCC."
+  }
+}
