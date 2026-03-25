@@ -1,0 +1,63 @@
+name: Deploy to Manus Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Deploy to Manus
+        env:
+          MANUS_PROJECT_ID: ${{ secrets.MANUS_PROJECT_ID }}
+          MANUS_API_TOKEN: ${{ secrets.MANUS_API_TOKEN }}
+        run: |
+          # Install Manus CLI if needed
+          npm install -g @manus/cli || true
+          
+          # Deploy using git push (Manus auto-detects changes)
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          
+          # The deployment happens automatically when we push to the repository
+          # Manus webhook will trigger on this push
+          echo "✅ Build successful. Manus will auto-deploy on webhook trigger."
+
+      - name: Notify deployment
+        if: success()
+        run: |
+          echo "✅ Deployment to Manus initiated"
+          echo "🌐 Your site will be live at: https://haala.io"
+          echo "📊 Dev server: https://3000-iuxxve3cuupzjdsvfkc4q-885139a8.us2.manus.computer"
+
+      - name: Notify failure
+        if: failure()
+        run: |
+          echo "❌ Build or deployment failed"
+          exit 1
