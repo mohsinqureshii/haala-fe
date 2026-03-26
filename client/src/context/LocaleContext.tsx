@@ -60,33 +60,40 @@ const LocaleContext = createContext<LocaleContextType>({
 export function LocaleProvider({
   children,
   initialCountry,
+  forceEnglish = false,
 }: {
   children: ReactNode;
   initialCountry?: CountryCode;
+  forceEnglish?: boolean;
 }) {
   const [country, setCountryState] = useState<CountryConfig>(
     COUNTRIES[initialCountry ?? 'sa']
   );
 
-  const applyLocale = (config: CountryConfig) => {
-    i18n.changeLanguage(config.language);
-    document.documentElement.dir = config.dir;
-    document.documentElement.lang = config.language;
+  const applyLocale = (config: CountryConfig, useEnglish = false) => {
+    const lang = useEnglish ? 'en' : config.language;
+    i18n.changeLanguage(lang);
+    document.documentElement.dir = useEnglish ? 'ltr' : config.dir;
+    document.documentElement.lang = lang;
     localStorage.setItem('haala_country', config.code);
   };
 
   useEffect(() => {
-    if (initialCountry && COUNTRIES[initialCountry]) {
+    if (forceEnglish) {
+      const config = COUNTRIES['sa'];
+      setCountryState(config);
+      applyLocale(config, true);
+    } else if (initialCountry && COUNTRIES[initialCountry]) {
       const config = COUNTRIES[initialCountry];
       setCountryState(config);
-      applyLocale(config);
+      applyLocale(config, false);
     }
-  }, [initialCountry]);
+  }, [initialCountry, forceEnglish]);
 
   const setCountry = (code: CountryCode) => {
     const config = COUNTRIES[code];
     setCountryState(config);
-    applyLocale(config);
+    applyLocale(config, false);
   };
 
   return (

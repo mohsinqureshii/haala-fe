@@ -39,24 +39,27 @@ export function useCountryDetection() {
       navigate(`/${code}${path}${location.search}`, { replace: true });
     };
 
-    // 1. Stored preference (sync, instant)
-    const stored = localStorage.getItem('haala_country') as CountryCode | null;
-    if (stored && VALID_COUNTRY_CODES.includes(stored)) {
-      doRedirect(stored);
-      return;
-    }
+    // Only redirect if NOT on root path - root stays in English
+    if (location.pathname !== '/') {
+      // 1. Stored preference (sync, instant)
+      const stored = localStorage.getItem('haala_country') as CountryCode | null;
+      if (stored && VALID_COUNTRY_CODES.includes(stored)) {
+        doRedirect(stored);
+        return;
+      }
 
-    // 2. Browser language (sync)
-    const fromLang = detectFromLanguage();
-    if (fromLang) {
-      doRedirect(fromLang);
-      return;
-    }
+      // 2. Browser language (sync)
+      const fromLang = detectFromLanguage();
+      if (fromLang) {
+        doRedirect(fromLang);
+        return;
+      }
 
-    // 3. IP geolocation (async fallback)
-    detectFromIP().then((country) => {
-      doRedirect(country ?? 'sa');
-    });
+      // 3. IP geolocation (async fallback)
+      detectFromIP().then((country) => {
+        doRedirect(country ?? 'sa');
+      });
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
