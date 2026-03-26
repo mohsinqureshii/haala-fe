@@ -2,7 +2,23 @@ import { HeroSection } from '@/components/HeroSection';
 import { ProductGrid } from '@/components/ProductGrid';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PricingSection } from '@/components/PricingSection';
-import { FAQSection } from '@/components/FAQSection';
+import { FeatureHighlights } from '@/components/FeatureHighlights';
+import { ResourcesSection } from '@/components/ResourcesSection';
+
+const FEATURES = [
+  {
+    title: 'Premium AI built-in',
+    description: 'Do your best work faster with the Gemini app, NotebookLM, and Gemini in Gmail, Docs, Sheets, and more.',
+  },
+  {
+    title: 'Tools born in the Cloud',
+    description: 'Collaborate in real time, from any device, across tools that are always up-to-date.',
+  },
+  {
+    title: 'Enterprise-grade security',
+    description: 'Protect your emails, files, and meetings with AI-powered security and compliance controls.',
+  },
+];
 
 const PRICING_TIERS = [
   {
@@ -62,46 +78,48 @@ const PRICING_TIERS = [
   },
 ];
 
-const FAQS = [
+const RESOURCES = [
   {
-    question: 'How do I get started with Haala?',
-    answer: 'Getting started is easy! Sign up for a free account, invite your team members, and start collaborating. No credit card required for the free trial.',
-    category: 'Getting Started',
+    category: 'ANNOUNCEMENT',
+    title: 'Unlock new ways of working with Haala and Gemini',
+    description: 'Discover how AI-powered collaboration is transforming the way teams work together.',
+    link: '#',
+    linkText: 'Learn more',
   },
   {
-    question: 'Can I try Haala for free?',
-    answer: 'Yes! We offer a 14-day free trial of all features. You can explore everything Haala has to offer without entering a credit card.',
-    category: 'Billing',
+    category: 'E-BOOK',
+    title: 'Get our ebook to learn about Haala and AI-powered collaboration',
+    description: 'Download our comprehensive guide to understanding modern workplace productivity.',
+    link: '#',
+    linkText: 'Download now',
   },
   {
-    question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards (Visa, Mastercard, American Express), bank transfers, and regional payment methods in Pakistan, Saudi Arabia, and the GCC.',
-    category: 'Billing',
+    category: 'NEWS',
+    title: 'Stay up to date with the latest stories and product news on the Haala blog',
+    description: 'Get insights into product updates, customer stories, and industry trends.',
+    link: '#',
+    linkText: 'Read the blog',
   },
   {
-    question: 'Is my data secure?',
-    answer: 'Security is our top priority. We use end-to-end encryption, SOC 2 compliance, GDPR adherence, and regular security audits to protect your data.',
-    category: 'Security',
+    category: 'GUIDE',
+    title: 'Prompt Guide 101: A quick-start handbook for effective prompts',
+    description: 'Master the art of writing effective prompts to get the most from AI assistance.',
+    link: '#',
+    linkText: 'Download now',
   },
   {
-    question: 'Can I export my data?',
-    answer: 'Yes, you can export all your data at any time in standard formats (CSV, JSON, etc.). Your data belongs to you.',
-    category: 'Data',
+    category: 'COMPARISON',
+    title: 'Compare Haala with Microsoft 365',
+    description: 'See why Haala is the choice for teams that want modern productivity tools.',
+    link: '#',
+    linkText: 'Download now',
   },
   {
-    question: 'Do you offer API access?',
-    answer: 'Yes! We provide a comprehensive REST API and webhooks for custom integrations. Check our developer documentation for details.',
-    category: 'Integration',
-  },
-  {
-    question: 'What is your uptime guarantee?',
-    answer: 'We guarantee 99.9% uptime with our Enterprise SLA. Our infrastructure is distributed across multiple regions for maximum reliability.',
-    category: 'Support',
-  },
-  {
-    question: 'How do I contact support?',
-    answer: 'You can reach our support team via email, chat, or phone. Response times vary by plan, with Enterprise customers getting priority support.',
-    category: 'Support',
+    category: 'MIGRATION',
+    title: 'Migrate your data with confidence',
+    description: 'Securely copy your emails, files, and data to Haala with our migration tools.',
+    link: '#',
+    linkText: 'Migration Resources',
   },
 ];
 
@@ -113,6 +131,9 @@ export default function Index() {
 
       {/* Product Grid */}
       <ProductGrid />
+
+      {/* Feature Highlights */}
+      <FeatureHighlights features={FEATURES} />
 
       {/* Product Showcase 1: Mail */}
       <ProductShowcase
@@ -165,18 +186,24 @@ export default function Index() {
       {/* Pricing Section */}
       <PricingSection tiers={PRICING_TIERS} />
 
-      {/* FAQ Section */}
-      <FAQSection faqs={FAQS} />
+      {/* Resources Section */}
+      <ResourcesSection
+        title="ALL THE LATEST\nLearn more about the future of work."
+        subtitle="Stay up to date with the latest stories, events, and more with Haala."
+        resources={RESOURCES}
+      />
 
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-green-600 text-white">
         <div className="container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Ready to transform your team?
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            Your team's new home is waiting.
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Join thousands of teams across Pakistan, Saudi Arabia, and the GCC using Haala.
-          </p>
+          <div className="space-y-2">
+            <p className="text-xl text-blue-100">
+              Free forever. No credit card. Set up in 2 minutes.
+            </p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <button
               onClick={() => window.location.href = 'https://app.haala.io/signup'}
