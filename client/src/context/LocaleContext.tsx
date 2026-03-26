@@ -19,6 +19,20 @@ export interface CountryConfig {
   regionName: string;
 }
 
+// Global English config for root path
+const GLOBAL_CONFIG: CountryConfig = {
+  code: 'sa' as CountryCode,
+  name: 'Global',
+  nameLocal: 'Global',
+  flag: '🌍',
+  language: 'en',
+  dir: 'ltr',
+  currency: 'USD',
+  businessPrice: 20,
+  cities: ['Karachi', 'Riyadh', 'Dubai'],
+  regionName: 'Pakistan & GCC',
+};
+
 export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   sa: { code: 'sa', name: 'Saudi Arabia', nameLocal: '\u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629', flag: '\uD83C\uDDF8\uD83C\uDDE6', language: 'ar', dir: 'rtl', currency: 'SAR', businessPrice: 25,  cities: ['Riyadh', 'Jeddah', 'NEOM'],         regionName: 'Saudi Arabia' },
   pk: { code: 'pk', name: 'Pakistan',     nameLocal: '\u067e\u0627\u06a9\u0633\u062a\u0627\u0646',    flag: '\uD83C\uDDF5\uD83C\uDDF0', language: 'ur', dir: 'rtl', currency: 'PKR', businessPrice: 499, cities: ['Karachi', 'Lahore', 'Islamabad'],  regionName: 'Pakistan' },
@@ -80,9 +94,8 @@ export function LocaleProvider({
 
   useEffect(() => {
     if (forceEnglish) {
-      const config = COUNTRIES['sa'];
-      setCountryState(config);
-      applyLocale(config, true);
+      setCountryState(GLOBAL_CONFIG);
+      applyLocale(GLOBAL_CONFIG, true);
     } else if (initialCountry && COUNTRIES[initialCountry]) {
       const config = COUNTRIES[initialCountry];
       setCountryState(config);
