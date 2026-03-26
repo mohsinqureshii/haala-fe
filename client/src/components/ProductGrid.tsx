@@ -1,4 +1,4 @@
-import { Mail, MessageSquare, Video, Calendar, Users, HardDrive, Sparkles, CheckSquare, FileText, Sheet, Sticky } from 'lucide-react';
+import { Mail, MessageSquare, Video, Calendar, Users, HardDrive, Sparkles, CheckSquare, FileText, Sheet, StickyNote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface Product {
@@ -84,7 +84,7 @@ const PRODUCTS: Product[] = [
     id: 'notes',
     name: 'Notes',
     description: 'Quick notes with rich formatting',
-    icon: <Sticky className="w-8 h-8" />,
+    icon: <StickyNote className="w-8 h-8" />,
     color: 'bg-orange-100 text-orange-600',
   },
 ];
