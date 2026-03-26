@@ -43,7 +43,7 @@ export default function LanguageSelector() {
         title="Change language"
       >
         <span className="text-base leading-none">{currentLang.flag}</span>
-        <span className="hidden sm:inline text-xs font-medium">{currentLang.name}</span>
+        <span className="hidden sm:inline text-xs font-medium uppercase">{currentLang.code}</span>
         <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
@@ -66,7 +66,7 @@ export default function LanguageSelector() {
               >
                 <span className="text-xl leading-none">{lang.flag}</span>
                 <div className="text-left flex-1">
-                  <div className="font-medium text-sm">{lang.name}</div>
+                  <div className="font-medium text-sm uppercase">{lang.code}</div>
                 </div>
                 {isSelected && (
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />

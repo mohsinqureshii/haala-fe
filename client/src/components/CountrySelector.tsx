@@ -43,7 +43,7 @@ export default function CountrySelector() {
         aria-haspopup="listbox"
       >
         <span className="text-base leading-none">{country.flag}</span>
-        <span className="hidden sm:inline text-xs font-medium">{country.name}</span>
+        <span className="hidden sm:inline text-xs font-medium uppercase">{country.code}</span>
         <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
@@ -72,7 +72,7 @@ export default function CountrySelector() {
                   >
                     <span className="text-xl leading-none">{c.flag}</span>
                     <div className="text-left">
-                      <div className="font-medium text-sm">{c.name}</div>
+                      <div className="font-medium text-sm uppercase">{code}</div>
                       <div className="text-xs text-gray-400">{c.nameLocal} &middot; {c.currency}</div>
                     </div>
                     {isSelected && (

@@ -6,7 +6,8 @@ interface Resource {
   description: string;
   link: string;
   linkText: string;
-  image?: string;
+  thumbnail?: string;
+  backgroundColor?: string;
 }
 
 interface ResourcesSectionProps {
@@ -17,7 +18,7 @@ interface ResourcesSectionProps {
 
 export function ResourcesSection({ title, subtitle, resources }: ResourcesSectionProps) {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-16">
@@ -37,31 +38,45 @@ export function ResourcesSection({ title, subtitle, resources }: ResourcesSectio
           {resources.map((resource, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col"
             >
-              {/* Category */}
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                {resource.category}
-              </p>
+              {/* Thumbnail */}
+              {resource.thumbnail && (
+                <div className={`h-40 ${resource.backgroundColor || 'bg-gray-100'} flex items-center justify-center overflow-hidden`}>
+                  <img
+                    src={resource.thumbnail}
+                    alt={resource.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
-              {/* Title */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3 flex-grow">
-                {resource.title}
-              </h3>
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                {/* Category */}
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                  {resource.category}
+                </p>
 
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                {resource.description}
-              </p>
+                {/* Title */}
+                <h3 className="text-lg font-bold text-gray-900 mb-2 flex-grow">
+                  {resource.title}
+                </h3>
 
-              {/* Link */}
-              <a
-                href={resource.link}
-                className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
-              >
-                {resource.linkText}
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  {resource.description}
+                </p>
+
+                {/* Link */}
+                <a
+                  href={resource.link}
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
+                >
+                  {resource.linkText}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           ))}
         </div>

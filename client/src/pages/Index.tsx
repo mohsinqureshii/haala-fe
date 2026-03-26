@@ -123,11 +123,32 @@ const RESOURCES = [
   },
 ];
 
+const TRUST_METRICS = [
+  { value: '12K+', label: 'Teams' },
+  { value: '150+', label: 'Countries' },
+  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '11', label: 'Products' },
+];
+
 export default function Index() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Trust Metrics */}
+      <section className="py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {TRUST_METRICS.map((metric, idx) => (
+              <div key={idx}>
+                <div className="text-3xl md:text-4xl font-bold text-gray-900">{metric.value}</div>
+                <div className="text-gray-600 mt-2">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Product Grid */}
       <ProductGrid />

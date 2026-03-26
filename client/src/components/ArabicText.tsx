@@ -1,13 +1,15 @@
-import { ReactNode, CSSProperties } from 'react';
+import { ReactNode, CSSProperties, FC } from 'react';
 
-const ArabicText = ({ 
+interface ArabicTextProps {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+}
+
+const ArabicText: FC<ArabicTextProps> = ({ 
   children, 
   className = '',
   style 
-}: { 
-  children: ReactNode
-  className?: string
-  style?: CSSProperties
 }) => (
   <span
     dir="rtl"
