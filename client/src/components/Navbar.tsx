@@ -10,6 +10,7 @@ import {
 import HaalaLogo from './HaalaLogo';
 import LocaleLink from './LocaleLink';
 import CountrySelector from './CountrySelector';
+import LanguageSelector from './LanguageSelector';
 
 const products = [
   { icon: <Mail className="h-4 w-4" />,        color: '#1A73E8', bg: '#EBF3FE', en: 'Mail',       ar: '\u0628\u0631\u064a\u062f', desc: 'Free @haala.io email', href: '/email' },
@@ -87,6 +88,7 @@ const Navbar = () => {
 
         {/* Desktop CTAs */}
         <div className="hidden lg:flex items-center gap-2">
+          <LanguageSelector />
           <CountrySelector />
           <LocaleLink to="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-4 py-2 rounded-full hover:bg-gray-50">
             {t('nav.contact_sales')}

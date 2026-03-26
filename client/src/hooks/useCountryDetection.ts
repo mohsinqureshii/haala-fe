@@ -3,18 +3,29 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { CountryCode, IP_TO_COUNTRY, LANG_TO_COUNTRY, VALID_COUNTRY_CODES } from '../context/LocaleContext';
 
 async function detectFromIP(): Promise<CountryCode | null> {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 3000);
-  try {
-    const res = await fetch('https://ipapi.co/json/', { signal: controller.signal });
-    clearTimeout(timeoutId);
-    if (!res.ok) return null;
-    const data = await res.json();
-    return IP_TO_COUNTRY[data.country_code as string] ?? null;
-  } catch {
-    clearTimeout(timeoutId);
-    return null;
+  // Try multiple IP detection services for redundancy
+  const services = [
+    { url: 'https://ipapi.co/json/', key: 'country_code' },
+    { url: 'https://ip-api.com/json/', key: 'countryCode' },
+  ];
+
+  for (const service of services) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    try {
+      const res = await fetch(service.url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const countryCode = data[service.key] as string;
+      const mapped = IP_TO_COUNTRY[countryCode];
+      if (mapped) return mapped;
+    } catch {
+      clearTimeout(timeoutId);
+      // Try next service
+    }
   }
+  return null;
 }
 
 function detectFromLanguage(): CountryCode | null {
